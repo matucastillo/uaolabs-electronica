@@ -1,0 +1,48 @@
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+.responsive-button {
+    background-color: #c5161d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    flex: 1;
+    max-width: 150px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.responsive-button:hover {
+    background-color: #a31216; /* Color de fondo al pasar el mouse */
+    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 350px) {
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .responsive-button {
+        margin: 10px 0;
+        width: 100%;
+        max-width: none;
+    }
+}
+
+.footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+    margin-top: 100px;
+}

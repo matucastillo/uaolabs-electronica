@@ -1,0 +1,144 @@
+/* Estilo base para ambos botones */
+.btn-primary, .btn-danger {
+    background-color: #c5161d; /* Color rojo personalizado para ambos botones */
+    border-color: #c5161d; /* Bordes del mismo color */
+    color: white;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Transición suave para el tamaño y color */
+}
+
+/* Cambio de tamaño al hacer hover */
+.btn-primary:hover, .btn-danger:hover {
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% al pasar el cursor */
+    background-color: #9f1217; /* Oscurece el color en hover */
+    border-color: #9f1217; /* Bordes del mismo color en hover */
+}
+
+/* Margen superior para el div */
+.containerSolicitud {
+    margin-top: 50px; /* Ajusta el valor según sea necesario */
+    width: 100%;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Mantener el texto en una sola fila en la tabla */
+.auto-width-table th, .auto-width-table td {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.termino-condiciones {
+    width: 80%;
+    margin: 50px  auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    text-align: justify;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+ol {
+    margin-left: 20px;
+}
+
+
+/* Estilo para el botón de confirmación SweetAlert*/
+.btn-confirmar {
+    background-color: #c5161d; /* Color de fondo */
+    border-color: #c5161d; /* Color del borde */
+    color: #fff; /* Color del texto */
+    transition: transform 0.3s ease; /* Transición suave */
+}
+
+.btn-confirmar:hover {
+    transform: scale(1.05); /* Agrandamiento leve */
+}
+
+/* Estilo para el botón de cancelación */
+.btn-cancelar {
+    background-color: #6c757d; /* Color de fondo */
+    border-color: #6c757d; /* Color del borde */
+    color: #fff; /* Color del texto */
+    transition: transform 0.3s ease; /* Transición suave */
+}
+
+.btn-cancelar:hover {
+    transform: scale(1.05); /* Agrandamiento leve */
+}
+
+.form-check-input {
+    transform: scale(1.5); /* Aumenta el tamaño del checkbox en un 50% */
+    margin-right: 15px; /* Ajusta el margen si es necesario */
+}
+.footer {
+    background-color: #cccccc;
+    padding: 10px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Contenedor principal */
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* Aplicar solo margen superior al botón */
+#guardarItemBtn {
+    margin-top: 24px;  /* Margen superior solo para el botón */
+}
+
+.form-group {
+    flex: 1;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+.form-group:last-child {
+    margin-right: 0; /* El último grupo no tiene margen derecho */
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+/* Optimización para dispositivos móviles */
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column; /* Apilar en columna en móviles */
+    }
+
+    .form-group {
+        margin-right: 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    #guardarItemBtn {
+        width: 50%; /* El botón ocupa el 100% del ancho disponible en móviles */
+    }
+}

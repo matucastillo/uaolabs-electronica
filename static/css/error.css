@@ -1,0 +1,52 @@
+@charset "UTF-8";
+/*!
+* Start Bootstrap - Agency v7.0.12 (https://startbootstrap.com/theme/agency)
+* Copyright 2013-2023 Start Bootstrap
+* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-agency/blob/master/LICENSE)
+*/
+/*!
+ * Bootstrap  v5.2.3 (https://getbootstrap.com/)
+ * Copyright 2011-2022 The Bootstrap Authors
+ * Copyright 2011-2022 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
+  body {
+    padding-top: 70px; /* Espacio suficiente para la barra de navegación fija */
+    margin: 0;
+    background: url("../img/error/header-bg-error.jpg") no-repeat center center fixed;
+    background-size: cover; /* Asegura que la imagen cubra el área del fondo */
+  }
+  .login-box {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* Fondo blanco para el contenedor */
+  }
+  
+  .content-wrapper {
+    margin-bottom: 140px; /* Espacio suficiente para el pie de página */
+  }
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espacio entre la imagen y el texto */
+  }
+
+  .header-image {
+      width: 120px; /* Tamaño estimado para la imagen */
+      height: auto; /* Mantiene la proporción de la imagen */
+  }

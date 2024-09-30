@@ -1,0 +1,21 @@
+/* Estilo para ajustar el tamaño del card */
+.card-shadow {
+    padding: 10px; /* Añade 5px de padding alrededor de la tabla */
+}
+
+/* Estilo para asegurar que la tabla no se desborde */
+.table-container {
+    overflow-x: auto; /* Permite que la tabla sea desplazable si es necesario */
+}
+
+/* Ajuste del ancho de la tabla para que no ocupe todo el espacio del card */
+.table {
+    margin: 0; /* Elimina el margen para que la tabla no se desplace */
+}
+
+.footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+    margin-top: 100px;
+}
