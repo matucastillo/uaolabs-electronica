@@ -34,12 +34,6 @@
                         <li class="nav-item"><a class="nav-link" href="#laboratorios">Laboratorios</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">Informate</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
-                        {% if 'user' in session %}
-                            <li class="nav-item"><a class="nav-link" href="{{ url_for('dashboard') }}">Zona LAB</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Cerrar sesión</a></li>
-                        {% else %}
-                            <li class="nav-item"><a class="nav-link" href="{{ url_for('googleLogin') }}">Iniciar sesión</a></li>
-                        {% endif %}
                     </ul>
                 </div>                
             </div>
@@ -48,12 +42,8 @@
         <header class="masthead">  
 
             <div class="container">
-                {% if 'user' in session %}
-                    <div class="masthead-subheading">Hola, {{nombre_apellido}}</div>
                     <div class="masthead-subheading">¡Es un gusto tenerte de regreso!</div>
-                {% else %}    
                     <div class="masthead-subheading">Inicia sesión y sé parte de la comunidad UAO LABS.</div>
-                {% endif %}
                 <div class="masthead-heading text-uppercase">#Somos UAO</div>
                 <a class="btn btn-primary btn-xl text-uppercase" href="#services">Conoce más</a>
             </div>
