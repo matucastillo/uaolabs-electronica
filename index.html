@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Pagina web donde se ofrecen los servicios del laboratorio de electrónica" />
+        <meta name="author" content="mtcastillo@uao.edu.co" />
+        <meta name="keywords" content="uao, labs, laboratorio, electronica"/>
+        <title>UAO LABS-Electrónica</title>
+        <!-- Favicon-->
+        <link rel="icon" href="{{ url_for('static', filename='ico/UAO-ico.png') }}" type="image/png">
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top"><img src="{{ url_for('static', filename='img/uao-labs_electronica.png') }}" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#laboratorios">Laboratorios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">Informate</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+                        {% if 'user' in session %}
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('dashboard') }}">Zona LAB</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Cerrar sesión</a></li>
+                        {% else %}
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('googleLogin') }}">Iniciar sesión</a></li>
+                        {% endif %}
+                    </ul>
+                </div>                
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">  
+
+            <div class="container">
+                {% if 'user' in session %}
+                    <div class="masthead-subheading">Hola, {{nombre_apellido}}</div>
+                    <div class="masthead-subheading">¡Es un gusto tenerte de regreso!</div>
+                {% else %}    
+                    <div class="masthead-subheading">Inicia sesión y sé parte de la comunidad UAO LABS.</div>
+                {% endif %}
+                <div class="masthead-heading text-uppercase">#Somos UAO</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Conoce más</a>
+            </div>
+
+        </header>
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Servicios</h2>
+                    <h3 class="section-subheading text-muted">Hemos puesto a tu disposición diferentes servicios, los cuales harán más fácil y agradable tu estadía en los laboratorios</h3>
+                </div>
+                <div class="row text-center">
+
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">
+                            <a href="https://forms.office.com/pages/responsepage.aspx?id=oL48aflOVEKJd3bgXLX1VtOIPFIkpP5Bvql9XVUNMhdUM1JBVk9OQ0w5U01JU1Q5Q1YwUVlLUDNVUS4u&origin=lprLink" class="text-decoration-none" target="_blank" style="color: inherit;">
+                                Prestamo de equipos
+                            </a>
+                        </h4>
+                        <p class="text-muted">
+                            <a href="https://forms.office.com/pages/responsepage.aspx?id=oL48aflOVEKJd3bgXLX1VtOIPFIkpP5Bvql9XVUNMhdUM1JBVk9OQ0w5U01JU1Q5Q1YwUVlLUDNVUS4u&origin=lprLink" class="text-decoration-none" target="_blank" style="color: inherit;">
+                                Ahora es un proceso 100% virtual y lo puedes hacer desde una computadora o dispositivo móvil. Aplica tanto para préstamos diarios como para movilidad interna y externa.
+                            </a>
+                        </p>
+                    </div>
+                    
+
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-cloud-moon fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">
+                            <a href="https://forms.office.com/pages/responsepage.aspx?id=oL48aflOVEKJd3bgXLX1VtOIPFIkpP5Bvql9XVUNMhdUQkUyN0k4UTcwNTNZNFVBSTBPTEpMQUlXSS4u&origin=lprLink" class="text-decoration-none" target="_blank" style="color: inherit;">
+                                Laboratorios las 24 hrs
+                            </a>
+                        </h4>
+                        <p class="text-muted">
+                            <a href="https://forms.office.com/pages/responsepage.aspx?id=oL48aflOVEKJd3bgXLX1VtOIPFIkpP5Bvql9XVUNMhdUQkUyN0k4UTcwNTNZNFVBSTBPTEpMQUlXSS4u&origin=lprLink" class="text-decoration-none" target="_blank" style="color: inherit;">
+                                Te ofrecemos la oportunidad de acceder a los laboratorios las 24 horas del día, los 7 días de la semana. Realiza tus trabajos, proyectos e investigaciones académicas en la U.
+                            </a>
+                        </p>
+                    </div>
+                    
+
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-calendar-day fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">
+                            <a href="https://reservalabs.uao.edu.co/" class="text-decoration-none" target="_blank" style="color: inherit;">
+                                Reserva de espacios
+                            </a>
+                        </h4>
+                        <p class="text-muted">
+                            <a href="https://reservalabs.uao.edu.co/" class="text-decoration-none" target="_blank" style="color: inherit;">
+                                Reserva el espacio de tu interés cuando te convenga. Además, gestiona tus reservas con flexibilidad, adaptándolas a tus necesidades y asegurando disponibilidad en el momento que lo requieras.
+                            </a>
+                        </p>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </section>
+        <!-- laboratorios Grid-->
+        <section class="page-section bg-light" id="laboratorios">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Laboratorios</h2>
+                    <h3 class="section-subheading text-muted">Espacios diseñados para tu desarrollo profesional (imágenes de referencia generadas con IA).</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- laboratorios item 1-->
+                        <div class="laboratorios-item">
+                            <a class="laboratorios-link" data-bs-toggle="modal" href="#laboratoriosModal1">
+                                <div class="laboratorios-hover">
+                                    <div class="laboratorios-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{{ url_for('static', filename='img/laboratorios/robotics_laboratory.jpg') }}" alt="..." />
+                            </a>
+                            <div class="laboratorios-caption">
+                                <div class="laboratorios-caption-heading">Robótica aplicada</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- laboratorios item 2-->
+                        <div class="laboratorios-item">
+                            <a class="laboratorios-link" data-bs-toggle="modal" href="#laboratoriosModal2">
+                                <div class="laboratorios-hover">
+                                    <div class="laboratorios-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{{ url_for('static', filename='img/laboratorios/analogy_laboratory.jpg') }}" alt="..." />
+                            </a>
+                            <div class="laboratorios-caption">
+                                <div class="laboratorios-caption-heading">Electrónica analógica</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- laboratorios item 3-->
+                        <div class="laboratorios-item">
+                            <a class="laboratorios-link" data-bs-toggle="modal" href="#laboratoriosModal3">
+                                <div class="laboratorios-hover">
+                                    <div class="laboratorios-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{{ url_for('static', filename='img/laboratorios/micronet_laboratory.jpg') }}" alt="..." />
+                            </a>
+                            <div class="laboratorios-caption">
+                                <div class="laboratorios-caption-heading">Microredes eléctricas</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                        <!-- laboratorios item 4-->
+                        <div class="laboratorios-item">
+                            <a class="laboratorios-link" data-bs-toggle="modal" href="#laboratoriosModal4">
+                                <div class="laboratorios-hover">
+                                    <div class="laboratorios-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{{ url_for('static', filename='img/laboratorios/power_laboratory.jpg') }}" alt="..." />
+                            </a>
+                            <div class="laboratorios-caption">
+                                <div class="laboratorios-caption-heading">Electrónica de potencia</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                        <!-- laboratorios item 5-->
+                        <div class="laboratorios-item">
+                            <a class="laboratorios-link" data-bs-toggle="modal" href="#laboratoriosModal5">
+                                <div class="laboratorios-hover">
+                                    <div class="laboratorios-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{{ url_for('static', filename='img/laboratorios/IA_laboratory.jpg') }}" alt="..." />
+                            </a>
+                            <div class="laboratorios-caption">
+                                <div class="laboratorios-caption-heading">Datos e Inteligencia artificial</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <!-- laboratorios item 6-->
+                        <div class="laboratorios-item">
+                            <a class="laboratorios-link" data-bs-toggle="modal" href="#laboratoriosModal6">
+                                <div class="laboratorios-hover">
+                                    <div class="laboratorios-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{{ url_for('static', filename='img/laboratorios/electronic_laboratory.jpg') }}" alt="..." />
+                            </a>
+                            <div class="laboratorios-caption">
+                                <div class="laboratorios-caption-heading">Abierto de electrónica</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Informate</h2>
+                    <h3 class="section-subheading text-muted">¡Mirá ve! Esto también te interesa</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src={{ url_for('static', filename='img/informacion/reloj.png') }} alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                
+                                <h4 class="subheading">¡Pilas con la hora!</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">El horario de atención del laboratorio de electrónica es de <strong>lunes a viernes de 7:00 a.m. a 9:30 p.m.</strong> y <strong>los sábados de 7:00 a.m. a 5:00 p.m.</strong>. Si necesitas una jornada adicional, haz tu reserva en Servicios de Laboratorio (lunes a viernes de 8:00 a.m. a 5:00 p.m.).</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src={{ url_for('static', filename='img/informacion/detente.png') }} alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Detente ahí</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Tenemos algunas normas que debes conocer antes de utilizar el laboratorio. Tómate un tiempo para leerlas; te ayudarán a entender cómo debe ser tu comportamiento para una mejor experiencia de uso. <a href="{{ url_for('static', filename='doc/normas_laboratorio.pdf') }}" target="_blank" >Consúltalas aquí.</a></p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src={{ url_for('static', filename='img/informacion/identificacion.png') }} alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Valida tu identidad</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">No es que no confiemos en ti, pero siempre debemos verificar tu identidad antes de entregarte cualquier elemento o de que utilices cualquier espacio que haya sido reservado. Puedes obtener tu carné digital desde tu <a href="https://play.google.com/store/apps/details?id=com.uao.universitasxxi.app&hl=es_CO" target="_blank">Android</a> o tu <a href="https://apps.apple.com/us/app/app-somos-uao/id6467116257" target="_blank">iPhone</a>.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src={{ url_for('static', filename='img/informacion/revisar.png') }} alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Revisa siempre</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Antes de irte del almacén, revisa la cantidad y el estado de los equipos. También verifica los espacios donde estuviste. Al devolverlos, revísalos y organízalos como te los entregaron. Es tu responsabilidad devolver todo en buen estado y en las cantidades registradas.</p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src={{ url_for('static', filename='img/informacion/autorizacion.png') }} alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 class="subheading">Préstamo interno y externo</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">¡OJO! No te lleves ni guardes los equipos y/o elementos sin la debida autorización. Es mejor reservarlos a través de la página web para que puedas guardarlos en tu casillero o llevarlos a casa sin ninguna dificultad durante el tiempo que los necesites. ¡Evita posibles multas!</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src={{ url_for('static', filename='img/informacion/viveUAO.png') }} alt="..." /></div>
+                        <div class="timeline-panel">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Contacto</h2>
+                    <h3 class="section-subheading text-mutedForm">Tu opinión es muy importante para nosotros. Si tienes alguna pregunta, queja, reclamo, solicitud o denuncia, te invitamos a llenar el siguiente formulario. Aunque hayas iniciado sesión, garantizamos que tu denuncia puede ser 100% anónima si así lo prefieres.</h3>
+                </div>
+                <form id="contactForm" action="/submit-form" method="POST">
+                    <div class="row align-items-stretch mb-5">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <!-- Name input-->
+                                <input class="form-control" id="name" name="name" type="text" placeholder="Tu nombre *" required autocomplete="name" />
+                                <div class="invalid-feedback">Nombre requerido.</div>
+                            </div>
+                            <div class="form-group">
+                                <!-- Email address input-->
+                                <input class="form-control" id="email" name="email" type="email" placeholder="Correo electrónico (Opcional)" autocomplete="email" />
+                                <div class="invalid-feedback">El correo electrónico no es válido.</div>
+                            </div>
+                            <div class="form-group mb-md-0">
+                                <!-- Phone number input-->
+                                <input class="form-control" id="phone" name="phone" type="tel" placeholder="Tu teléfono (Opcional)" autocomplete="tel" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-textarea mb-md-0">
+                                <!-- Message input-->
+                                <textarea class="form-control" id="message" name="message" placeholder="Tu mensaje *" required autocomplete="off"></textarea>
+                                <div class="invalid-feedback">Mensaje requerido.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Submit Button-->
+                    <div class="text-center">
+                        <button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Enviar Mensaje</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        
+         <!-- Success Modal -->
+        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="successModalLabel">Éxito</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ¡Mensaje enviado con éxito!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Modal -->
+        <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="errorModalLabel">Error</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Error al enviar el mensaje. Inténtalo de nuevo.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <!-- Fila de redes sociales -->
+                    <div class="col-lg-12 text-center mb-3">
+                        <a class="btn btn-dark btn-social mx-2" href="https://x.com/lauao" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/universidadautonomadeoccidente" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/universidadautonomadeoccidente/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.youtube.com/user/autonomadeocc" aria-label="Youtube" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/school/universidadautonomadeoccidente/" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+
+                    <!-- Fila de copyright -->
+                    <div class="col-lg-12 text-center mb-3">
+                        <div class="copyright">
+                            UAO LABS © 2024. Todos los derechos reservados
+                        </div>
+                    </div>
+
+                    <!-- Fila de enlaces -->
+                    <div class="col-lg-12 text-center">
+                        <a class="link-dark text-decoration-none me-3" href="https://www.uao.edu.co/terminos-y-condiciones-del-sitio/" target="_blank">Términos de uso</a>
+                        <a class="link-dark text-decoration-none me-3" href="https://www.uao.edu.co/aviso-de-privacidad-de-la-universidad-autonoma-de-occidente/" target="_blank">Tratamientos de datos</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- laboratorios Modals-->
+        <!-- laboratorios item 1 modal popup-->
+        <div class="laboratorios-modal modal fade" id="laboratoriosModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="{{ url_for('static', filename='img/close-icon.svg') }}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Robótica aplicada</h2>
+                                    <img class="img-fluid d-block mx-auto" src="{{ url_for('static', filename='img/laboratorios/robotics_laboratory.jpg') }}" alt="..." />
+                                    <p>Explora la robótica aplicada, donde la tecnología transforma industrias con robots diseñados para optimizar tareas y colaborar con humanos. Desde la automatización en fábricas hasta la asistencia personal, la robótica redefine la eficiencia y la precisión, creando soluciones avanzadas para un futuro más conectado e innovador.</p>
+                                    
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Cerrar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- laboratorios item 2 modal popup-->
+        <div class="laboratorios-modal modal fade" id="laboratoriosModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="{{ url_for('static', filename='img/close-icon.svg') }}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Electrónica analógica</h2>
+                                    <img class="img-fluid d-block mx-auto" src="{{ url_for('static', filename='img/laboratorios/analogy_laboratory.jpg') }}" alt="..." />
+                                    <p>Descubre la electrónica analógica, el campo que explora circuitos y dispositivos utilizando señales continuas. Desde amplificadores hasta osciladores, la electrónica analógica se centra en el diseño y análisis de componentes que procesan señales en forma de voltajes o corrientes. Esta disciplina es fundamental en la creación de sistemas electrónicos precisos y eficientes.</p>
+                                    
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Cerrar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- laboratorios item 3 modal popup-->
+        <div class="laboratorios-modal modal fade" id="laboratoriosModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="{{ url_for('static', filename='img/close-icon.svg') }}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Microredes eléctricas</h2>
+                                    <img class="img-fluid d-block mx-auto" src="{{ url_for('static', filename='img/laboratorios/micronet_laboratory.jpg') }}" alt="..." />
+                                    <p>Explora las microredes eléctricas y las smart grids, tecnologías avanzadas que revolucionan la gestión energética. Las microredes permiten una distribución eficiente y local de electricidad, mientras que las smart grids optimizan la red eléctrica mediante datos y control inteligente. Estas innovaciones mejoran la estabilidad, eficiencia y sostenibilidad del suministro energético.</p>
+                                    
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Cerrar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- laboratorios item 4 modal popup-->
+        <div class="laboratorios-modal modal fade" id="laboratoriosModal4" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="{{ url_for('static', filename='img/close-icon.svg') }}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Electrónica de potencia</h2>
+                                    <img class="img-fluid d-block mx-auto" src="{{ url_for('static', filename='img/laboratorios/power_laboratory.jpg') }}" alt="..." />
+                                    <p>Adéntrate en la electrónica de potencia, una rama crucial para el control y conversión de energía eléctrica. Esta disciplina se enfoca en el diseño de circuitos y dispositivos que gestionan grandes niveles de potencia, como convertidores, inversores y rectificadores. La electrónica de potencia es esencial para sistemas de energía eficientes y sostenibles.</p>
+                                    
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Cerrar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- laboratorios item 5 modal popup-->
+        <div class="laboratorios-modal modal fade" id="laboratoriosModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="{{ url_for('static', filename='img/close-icon.svg') }}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Datos e Inteligencia artificial</h2>
+                                    <img class="img-fluid d-block mx-auto" src="{{ url_for('static', filename='img/laboratorios/IA_laboratory.jpg') }}" alt="..." />
+                                    <p>Explora cómo los datos y la inteligencia artificial se entrelazan para transformar la toma de decisiones y la automatización. La inteligencia artificial utiliza algoritmos avanzados para analizar grandes volúmenes de datos, descubriendo patrones y tendencias que optimizan procesos y predicen resultados. Juntas, estas tecnologías crean soluciones innovadoras y mejoran la eficiencia en múltiples sectores.</p>
+                                    
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Cerrar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- laboratorios item 6 modal popup-->
+        <div class="laboratorios-modal modal fade" id="laboratoriosModal6" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="{{ url_for('static', filename='img/close-icon.svg') }}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Abierto de electrónica</h2>
+                                    <img class="img-fluid d-block mx-auto" src="{{ url_for('static', filename='img/laboratorios/electronic_laboratory.jpg') }}" alt="..." />
+                                    <p>El laboratorio abierto de electrónica, un espacio diseñado para que estudiantes de ingeniería realicen prácticas con diversos equipos de prueba. Aquí, los estudiantes tienen la oportunidad de experimentar y aplicar sus conocimientos en un entorno práctico, utilizando herramientas avanzadas para desarrollar y perfeccionar sus habilidades en electrónica.</p>
+                                    
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Cerrar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap JS (v5) -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>    
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- Core theme JS -->
+        <script>
+
+            window.addEventListener('DOMContentLoaded', event => {
+
+                // Navbar shrink function
+                var navbarShrink = function () {
+                    const navbarCollapsible = document.body.querySelector('#mainNav');
+                    if (!navbarCollapsible) {
+                        return;
+                    }
+                    
+                    // Selecciona la imagen y el texto dentro de la barra de navegación
+                    const navbarImage = document.body.querySelector('#mainNav .navbar-brand img');
+                    const navbarText = document.body.querySelector('#mainNav .navbar-brand .navbar-text');
+            
+                    if (window.scrollY > 0) {
+                        // Efecto de contracción al hacer scroll
+                        navbarCollapsible.style.padding = '0.5rem 1rem'; // Ejemplo de reducción de padding
+                        navbarCollapsible.style.transition = 'padding 0.3s'; // Ejemplo de transición suave
+            
+                        if (navbarImage) {
+                            navbarImage.style.width = '50px'; // Tamaño reducido de la imagen
+                            navbarImage.style.transition = 'width 0.3s'; // Transición suave
+                        }
+            
+                        if (navbarText) {
+                            navbarText.style.fontSize = '0.9rem'; // Tamaño reducido del texto
+                            navbarText.style.transition = 'font-size 0.3s'; // Transición suave
+                        }
+                    } else {
+                        // Restaura el padding, tamaño de imagen y tamaño de texto cuando está en la parte superior
+                        navbarCollapsible.style.padding = '1rem 1rem'; // Padding original
+            
+                        if (navbarImage) {
+                            navbarImage.style.width = '100px'; // Tamaño original de la imagen
+                        }
+            
+                        if (navbarText) {
+                            navbarText.style.fontSize = '1.2rem'; // Tamaño original del texto
+                        }
+                    }
+                };
+            
+                // Inicializa el navbar con la clase siempre activa
+                const navbarCollapsible = document.body.querySelector('#mainNav');
+                if (navbarCollapsible) {
+                    navbarCollapsible.classList.add('navbar-shrink');
+                }
+            
+                // Aplica el efecto de contracción y escalado al hacer scroll
+                navbarShrink();
+            
+                // Aplica el efecto de contracción y escalado cuando se hace scroll
+                document.addEventListener('scroll', navbarShrink);
+            
+                // Activa Bootstrap scrollspy en el elemento principal de navegación
+                document.addEventListener('DOMContentLoaded', function () {
+                    const mainNav = document.querySelector('#mainNav');
+                    if (mainNav) {
+                        new bootstrap.ScrollSpy(document.body, {
+                            target: '#mainNav',
+                            rootMargin: '0px 0px -40%'
+                        });
+                    }
+                });
+            
+                // Colapsa la barra de navegación cuando se hace clic en un enlace en dispositivos móviles
+                const navbarToggler = document.body.querySelector('.navbar-toggler');
+                const responsiveNavItems = [].slice.call(
+                    document.querySelectorAll('#navbarResponsive .nav-link')
+                );
+                responsiveNavItems.map(function (responsiveNavItem) {
+                    responsiveNavItem.addEventListener('click', () => {
+                        if (window.getComputedStyle(navbarToggler).display !== 'none') {
+                            navbarToggler.click();
+                        }
+                    });
+                });
+            
+            });
+            
+            //Mensaje de cuando se envia el formulario
+            document.addEventListener('DOMContentLoaded', function() {
+                var form = document.getElementById('contactForm');
+                var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                var errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+        
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Evita el envío del formulario
+        
+                    // Aquí debes manejar el envío del formulario (usualmente con Fetch o XMLHttpRequest)
+                    var formData = new FormData(form);
+        
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: formData
+                    }).then(response => {
+                        if (response.ok) {
+                            successModal.show(); // Muestra el modal de éxito
+                            form.reset(); // Limpia los campos del formulario
+                        } else {
+                            errorModal.show(); // Muestra el modal de error
+                        }
+                    }).catch(() => {
+                        errorModal.show(); // Muestra el modal de error en caso de fallo en la conexión
+                    });
+                });
+            });
+            
+        </script>
+    </body>
+</html>
